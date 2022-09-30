@@ -32,10 +32,14 @@ h1 {
   text-align: center;
 }
 
+p {
+  margin: 0.5rem 0 1rem 0;
+}
+
 /* ELEMENTS */
 body {
   margin: 0;
-  background: linear-gradient(0deg, var(--bg-blue) 0%, var(--bg-violet) 100%);
+  background: linear-gradient(0deg, var(--bg-blue) -50%, var(--bg-violet) 100%);
 }
 
 main {
@@ -58,17 +62,19 @@ footer {
 }
 
 .card {
+  margin-top: 3rem;
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
+  background-color: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 48px -24px var(--dark);
 }
 
 .card-content {
   position: relative;
   box-sizing: border-box;
-  border-radius: 1rem;
-  background-color: white;
   padding: 8rem 1.5rem 3rem 1.5rem;
   width: 100%;
 }
@@ -79,8 +85,8 @@ footer {
   top: 10%;
   transform: translate(-50%, -50%);
   position: absolute;
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 236px;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -88,12 +94,12 @@ footer {
 }
 
 #illustration:before {
-  animation: from-bottom;
+  animation: from-bottom-mobile;
   animation-duration: 0.8s;
   animation-timing-function: ease-out;
   content: "";
   left: 50%;
-  top: 16%;
+  top: 12%;
   transform: translate(-50%, -50%);
   position: absolute;
   height: 180px;
@@ -116,6 +122,10 @@ details {
   border-color: var(--dividers);
   border-style: solid;
   border-width: 0 0 1px 0;
+}
+
+details summary,
+details p {
   font-size: 0.8rem;
 }
 
@@ -154,12 +164,20 @@ details[open] summary:after {
 }
 
 @media screen and (min-width: 900px) {
+  body {
+    background: linear-gradient(0deg, var(--bg-blue) 0%, var(--bg-violet) 100%);
+  }
+
   h1 {
     text-align: left;
   }
 
+  .card {
+    margin-top: 0;
+  }
+
   .card-content {
-    padding: 5em 1.5rem;
+    padding: 4em 1rem;
     overflow: hidden;
   }
 
@@ -167,11 +185,16 @@ details[open] summary:after {
     left: 50%;
     width: 50%;
     margin: 0;
+    max-width: 350px;
+  }
+
+  details summary {
+    font-size: 0.9rem;
   }
 
   #illustration {
     left: -10%;
-    top: 36%;
+    top: 35%;
     height: 945px;
     width: 966px;
     background-image: url(./images/bg-pattern-desktop.svg);
@@ -228,12 +251,12 @@ details[open] summary:after {
   color: white;
 }
 
-@keyframes from-bottom {
+@keyframes from-bottom-mobile {
   0% {
     top: 28%;
   }
   100% {
-    top: 16%;
+    top: 12%;
   }
 }
 
