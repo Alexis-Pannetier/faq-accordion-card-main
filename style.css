@@ -1,0 +1,256 @@
+:root {
+  --primary: hsl(14, 88%, 65%);
+  --dark: hsl(238, 29%, 16%);
+  --bg-violet: hsl(273, 75%, 66%);
+  --bg-blue: hsl(240, 73%, 65%);
+  --text-dark: hsl(237, 12%, 33%);
+  --text-gray: hsl(240, 6%, 50%);
+  --dividers: hsl(240, 5%, 91%);
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("/fonts/KumbhSans-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("/fonts/KumbhSans-Bold.ttf");
+  font-weight: 700;
+}
+
+* {
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 400;
+  color: var(--dark);
+}
+
+h1 {
+  font-weight: 700;
+  margin: 0 0 2rem 0;
+  text-align: center;
+}
+
+/* ELEMENTS */
+body {
+  margin: 0;
+  background: linear-gradient(0deg, var(--bg-blue) 0%, var(--bg-violet) 100%);
+}
+
+main {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+footer {
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  float: none;
+  margin: auto;
+  width: 100%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.card-content {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  background-color: white;
+  padding: 8rem 1.5rem 3rem 1.5rem;
+  width: 100%;
+}
+
+#illustration {
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(./images/bg-pattern-mobile.svg);
+}
+
+#illustration:before {
+  animation: from-bottom;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  content: "";
+  left: 50%;
+  top: 16%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  height: 180px;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(./images/illustration-woman-online-mobile.svg);
+}
+
+/* ACCORDION */
+.accordion {
+  left: none;
+  margin: auto;
+  width: 100%;
+}
+
+details {
+  position: relative;
+  border-color: var(--dividers);
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  font-size: 0.8rem;
+}
+
+summary {
+  list-style: none;
+  margin: 1rem 1rem 1rem 0;
+  transition: color 0.2s ease-out;
+}
+
+summary:hover {
+  cursor: pointer;
+  color: var(--primary);
+}
+
+summary:after {
+  position: absolute;
+  content: url(/images/icon-arrow-down.svg);
+  right: 0;
+}
+
+details p {
+  color: var(--text-gray);
+}
+
+.accordion {
+  position: relative;
+  max-width: 400px;
+}
+
+details[open] summary {
+  font-weight: bold;
+}
+
+details[open] summary:after {
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 900px) {
+  h1 {
+    text-align: left;
+  }
+
+  .card-content {
+    padding: 5em 1.5rem;
+    overflow: hidden;
+  }
+
+  .accordion {
+    left: 50%;
+    width: 50%;
+    margin: 0;
+  }
+
+  #illustration {
+    left: -10%;
+    top: 36%;
+    height: 945px;
+    width: 966px;
+    background-image: url(./images/bg-pattern-desktop.svg);
+  }
+
+  #illustration:before {
+    animation: from-bottom-desktop;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    left: 76%;
+    top: 58%;
+    height: 359px;
+    width: 472px;
+    background-image: url(./images/illustration-woman-online-desktop.svg);
+  }
+
+  #cube {
+    z-index: 1;
+    animation: cube-from-top-desktop;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    content: "";
+    left: 2px;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    height: 184px;
+    width: 191px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(./images/illustration-box-desktop.svg);
+  }
+}
+
+/* ATTRIBUTION */
+.attribution {
+  font-family: roboto;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.attribution * {
+  color: white;
+}
+
+.attribution a:hover {
+  color: var(--primary);
+}
+
+/* MISC  */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+@keyframes from-bottom {
+  0% {
+    top: 28%;
+  }
+  100% {
+    top: 16%;
+  }
+}
+
+@keyframes from-bottom-desktop {
+  0% {
+    top: 66%;
+  }
+  100% {
+    top: 58%;
+  }
+}
+
+@keyframes cube-from-top-desktop {
+  0% {
+    top: 48%;
+  }
+  100% {
+    top: 56%;
+  }
+}
